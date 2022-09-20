@@ -22,20 +22,24 @@ variable "instance_aws_security_group_rule_tcp_ports" {
 
 
 variable "instance_aws_security_group_rule_udp_ports" {
-  description = "UDP ports to allow access to from the internet."
   default     = []
+  description = "UDP ports to allow access to from the internet."
   type        = list(number)
 }
 
 variable "instance_user_data_script_file" {
-  description = "An (optional) script to execute on the deployed instance."
   default     = null
+  description = "An (optional) script to execute on the deployed instance."
   type        = string
+  validation {
+    condition     = var.instance_user_data_script_file == null || try(fileexists(var.instance_user_data_script_file), true)
+    error_message = "The file does not exist."
+  }
 }
 
 variable "instance_distribution" {
-  description = "Pick the distribution you would like to use."
   default     = "fedora"
+  description = "Pick the distribution you would like to use."
   type        = string
   validation {
     condition     = contains(["fedora", "ubuntu"], var.instance_distribution)
