@@ -1,5 +1,5 @@
 module "instance" {
-  source                                     = "../../"
+  source = "../../"
 }
 
 output "all" {

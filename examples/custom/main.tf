@@ -1,7 +1,7 @@
 module "centos7" {
   source                                     = "../../"
   instance_distribution                      = "centos7"
-  instance_name                              = "centos7" 
+  instance_name                              = "centos7"
   instance_aws_security_group_rule_tcp_ports = [22, 80, 443]
   instance_user_data_script_file             = "myscript.sh"
 }
@@ -9,7 +9,7 @@ module "centos7" {
 module "centos8" {
   source                                     = "../../"
   instance_distribution                      = "centos8"
-  instance_name                              = "centos8" 
+  instance_name                              = "centos8"
   instance_aws_security_group_rule_tcp_ports = [22, 80, 443]
   instance_user_data_script_file             = "myscript.sh"
 }
@@ -17,7 +17,7 @@ module "centos8" {
 module "centos9" {
   source                                     = "../../"
   instance_distribution                      = "centos9"
-  instance_name                              = "centos9" 
+  instance_name                              = "centos9"
   instance_aws_security_group_rule_tcp_ports = [22, 80, 443]
   instance_user_data_script_file             = "myscript.sh"
 }
@@ -25,7 +25,7 @@ module "centos9" {
 module "fedora" {
   source                                     = "../../"
   instance_distribution                      = "fedora"
-  instance_name                              = "fedora" 
+  instance_name                              = "fedora"
   instance_aws_security_group_rule_tcp_ports = [22, 80, 443]
   instance_user_data_script_file             = "myscript.sh"
 }
@@ -33,7 +33,7 @@ module "fedora" {
 module "oraclelinux7" {
   source                                     = "../../"
   instance_distribution                      = "oraclelinux7"
-  instance_name                              = "oraclelinux7" 
+  instance_name                              = "oraclelinux7"
   instance_aws_security_group_rule_tcp_ports = [22, 80, 443]
   instance_user_data_script_file             = "myscript.sh"
 }
@@ -41,7 +41,7 @@ module "oraclelinux7" {
 module "oraclelinux8" {
   source                                     = "../../"
   instance_distribution                      = "oraclelinux8"
-  instance_name                              = "oraclelinux8" 
+  instance_name                              = "oraclelinux8"
   instance_aws_security_group_rule_tcp_ports = [22, 80, 443]
   instance_user_data_script_file             = "myscript.sh"
 }
@@ -49,7 +49,7 @@ module "oraclelinux8" {
 module "oraclelinux9" {
   source                                     = "../../"
   instance_distribution                      = "oraclelinux9"
-  instance_name                              = "oraclelinux9" 
+  instance_name                              = "oraclelinux9"
   instance_aws_security_group_rule_tcp_ports = [22, 80, 443]
   instance_user_data_script_file             = "myscript.sh"
 }
@@ -57,7 +57,7 @@ module "oraclelinux9" {
 module "ubuntu" {
   source                                     = "../../"
   instance_distribution                      = "ubuntu"
-  instance_name                              = "ubuntu" 
+  instance_name                              = "ubuntu"
   instance_aws_security_group_rule_tcp_ports = [22, 80, 443]
   instance_user_data_script_file             = "myscript.sh"
 }

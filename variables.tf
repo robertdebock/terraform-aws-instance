@@ -3,7 +3,7 @@ variable "instance_name" {
   description = "The name of the deployment"
   type        = string
   validation {
-    condition = length(var.instance_name) <= 16 && length(var.instance_name) >= 4 && var.instance_name != "default"
+    condition     = length(var.instance_name) <= 16 && length(var.instance_name) >= 4 && var.instance_name != "default"
     error_message = "Please use a name between 4 and 16 characters, not \"default\"."
   }
 }
@@ -45,4 +45,10 @@ variable "instance_distribution" {
     condition     = contains(["centos7", "centos8", "centos9", "fedora", "oraclelinux7", "oraclelinux8", "oraclelinux9", "ubuntu"], var.instance_distribution)
     error_message = "Please choose from \"centos(7|8|9)\", \"fedora\", \"oraclelinux(7|8|9)\", or \"ubuntu\"."
   }
+}
+
+variable "instance_type" {
+  default     = "t3.micro"
+  description = "The type of instance to deploy."
+  type        = string
 }
