@@ -8,7 +8,7 @@ case "${ID}" in
     apt-get update
     apt-get upgrade --quiet --yes
   ;;
-  fedora|redhat|centos)
+  centos|fedora|ol|redhat)
     yum -y update
   ;;
   *)

@@ -42,7 +42,7 @@ variable "instance_distribution" {
   description = "Pick the distribution you would like to use."
   type        = string
   validation {
-    condition     = contains(["fedora", "ubuntu"], var.instance_distribution)
-    error_message = "Please choose from \"fedora\" or \"ubuntu\"."
+    condition     = contains(["centos7", "centos8", "centos9", "fedora", "oraclelinux7", "oraclelinux8", "oraclelinux9", "ubuntu"], var.instance_distribution)
+    error_message = "Please choose from \"centos(7|8|9)\", \"fedora\", \"oraclelinux(7|8|9)\", or \"ubuntu\"."
   }
 }
