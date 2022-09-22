@@ -52,3 +52,44 @@ variable "instance_type" {
   description = "The type of instance to deploy."
   type        = string
 }
+
+variable "instance_aws_vpc_id" {
+  default     = null
+  description = "Optionally specify the (existing) VPC to deploy in. Not setting this value, means this module will create a VPC."
+  type        = string
+  validation {
+    condition     = var.instance_aws_vpc_id == null || can(regex("^vpc-.*", var.instance_aws_vpc_id))
+    error_message = "Please set a VPC starting with \"vpc-\"."
+  }
+}
+
+variable "instance_aws_subnet_id" {
+  default     = null
+  description = "Optionally specify the (existing) subnet to deploy in. Not setting this value, means this module will create a subnet."
+  type        = string
+  validation {
+    condition     = var.instance_aws_subnet_id == null || can(regex("^subnet-.*", var.instance_aws_subnet_id))
+    error_message = "Please set a subnet starting with \"subnet-\"."
+  }
+}
+
+
+variable "instance_aws_security_group_id" {
+  default     = null
+  description = "Optionally specify the (existing) security group to deploy in. Not setting this value, means this module will create a security group."
+  type        = string
+  validation {
+    condition     = var.instance_aws_security_group_id == null || can(regex("^sg-.*", var.instance_aws_security_group_id))
+    error_message = "Please set a subnet starting with \"sg-\"."
+  }
+}
+
+variable "instance_aws_key_pair_id" {
+  default     = null
+  description = "Optionally specify the (existing) ssh key pair to use. Not setting this value, means this module will place a key pair."
+  type        = string
+  validation {
+    condition     = var.instance_aws_key_pair_id == null || can(regex("^key-.*", var.instance_aws_key_pair_id))
+    error_message = "Please set a subnet starting with \"key-\"."
+  }
+}
