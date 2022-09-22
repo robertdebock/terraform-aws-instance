@@ -93,3 +93,13 @@ variable "instance_aws_key_pair_id" {
     error_message = "Please set a subnet starting with \"key-\"."
   }
 }
+
+variable "instance_public_key" {
+  default     = null
+  description = "Optionally specify the contents of an (existing) rsa ssh public key to use."
+  type        = string
+  validation {
+    condition     = var.instance_public_key == null || can(regex("^ssh-rsa .*", var.instance_public_key))
+    error_message = "Please provide the contents of an rsa public ssh key."
+  }
+}

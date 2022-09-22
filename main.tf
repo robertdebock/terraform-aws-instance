@@ -104,9 +104,9 @@ resource "aws_route_table_association" "default" {
 }
 
 resource "aws_key_pair" "default" {
-  count      = var.instance_aws_key_pair_id == null ? 1 : 0
+  count      = var.instance_public_key == null ? 0 : 1
   key_name   = var.instance_name
-  public_key = file("id_rsa.pub")
+  public_key = var.instance_public_key
   tags       = local.tags
 }
 
