@@ -4,7 +4,7 @@ resource "tls_private_key" "default" {
 }
 
 resource "aws_key_pair" "default" {
-  key_name   = "my-instance-key"
+  key_name   = "my-custom-key"
   public_key = tls_private_key.default.public_key_openssh
 }
 
@@ -17,7 +17,6 @@ resource "local_file" "public" {
   filename = "id_rsa.pub"
   content  = tls_private_key.default.public_key_openssh
 }
-
 
 resource "aws_vpc" "default" {
   cidr_block = "192.168.0.0/16"

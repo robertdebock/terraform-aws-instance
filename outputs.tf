@@ -22,9 +22,3 @@ output "instance_security_group_id" {
   description = "The security group where the instance is deployed."
   value       = var.instance_aws_security_group_id == null ? aws_security_group.default[0].id : var.instance_aws_security_group_id
 }
-
-output "instance_key_pair_id" {
-  description = "The key pair to use for the instance."
-  value       = var.instance_aws_key_pair_id == null ? aws_key_pair.default[0].key_pair_id : var.instance_aws_key_pair_id
-}
-
