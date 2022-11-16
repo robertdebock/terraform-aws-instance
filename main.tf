@@ -64,6 +64,7 @@ resource "aws_security_group_rule" "internet" {
 
 data "aws_availability_zones" "default" {
   state = "available"
+  exclude_names = ["us-east-1e"]
 }
 
 resource "random_shuffle" "default" {
