@@ -116,7 +116,6 @@ data "aws_key_pair" "default" {
   key_pair_id = var.instance_aws_key_pair_id
 }
 
-
 data "aws_ami" "default" {
   most_recent = true
   filter {
@@ -149,4 +148,17 @@ resource "aws_internet_gateway" "default" {
   count  = length(aws_vpc.default)
   vpc_id = local.vpc_id
   tags   = local.tags
+}
+
+resource "aws_ebs_volume" "default" {
+  count             = var.instance_volume_size != null ? 1 : 0
+  availability_zone = random_shuffle.default.result[0]
+  size              = var.instance_volume_size
+}
+
+resource "aws_volume_attachment" "default" {
+  count       = var.instance_volume_size != null ? 1 : 0
+  device_name = "/dev/sdh"
+  volume_id   = aws_ebs_volume.default[0].id
+  instance_id = aws_instance.default.id
 }

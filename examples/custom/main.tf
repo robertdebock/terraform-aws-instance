@@ -6,6 +6,7 @@ data "terraform_remote_state" "default" {
     path = "./prerequisites/terraform.tfstate"
   }
 }
+
 module "centos8" {
   source                                     = "../../"
   instance_distribution                      = "centos8"
