@@ -105,11 +105,7 @@ variable "instance_public_key" {
 }
 
 variable "instance_volume_size" {
-  default     = null
-  description = "The size in gigabytes of the extra volume attached to the instance."
+  default     = 0
+  description = "The size in gigabytes of the extra volume attached to the instance. \"0\" means no volume will be added."
   type        = number
-  validation {
-    condition     = var.instance_volume_size == null || var.instance_volume_size > 0
-    error_message = "When specifying a size, please use a positive value."
-  }
 }

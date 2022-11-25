@@ -151,13 +151,13 @@ resource "aws_internet_gateway" "default" {
 }
 
 resource "aws_ebs_volume" "default" {
-  count             = var.instance_volume_size != null ? 1 : 0
+  count             = var.instance_volume_size == 0 ? 0 : 1
   availability_zone = random_shuffle.default.result[0]
   size              = var.instance_volume_size
 }
 
 resource "aws_volume_attachment" "default" {
-  count       = var.instance_volume_size != null ? 1 : 0
+  count       = var.instance_volume_size == 0 ? 0 : 1
   device_name = "/dev/sdh"
   volume_id   = aws_ebs_volume.default[0].id
   instance_id = aws_instance.default.id
