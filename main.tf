@@ -66,17 +66,11 @@ data "aws_availability_zones" "default" {
   state = "available"
   exclude_names = ["us-east-1e"]
 }
-
-resource "random_shuffle" "default" {
-  input        = data.aws_availability_zones.default.names
-  result_count = 1
-}
-
 resource "aws_subnet" "default" {
   count             = length(aws_vpc.default)
   vpc_id            = local.vpc_id
   cidr_block        = cidrsubnet(aws_vpc.default[0].cidr_block, 8, 23)
-  availability_zone = random_shuffle.default.result[0]
+  availability_zone = data.aws_availability_zones.default.names[1]
   tags              = local.tags
 }
 
@@ -152,7 +146,7 @@ resource "aws_internet_gateway" "default" {
 
 resource "aws_ebs_volume" "default" {
   count             = var.instance_volume_size == 0 ? 0 : 1
-  availability_zone = random_shuffle.default.result[0]
+  availability_zone = data.aws_availability_zones.default.names[1]
   size              = var.instance_volume_size
 }
 
