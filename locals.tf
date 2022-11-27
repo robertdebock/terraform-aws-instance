@@ -44,6 +44,7 @@ locals {
   ssh_user           = local._ssh_user[var.instance_distribution]
   vpc_id             = coalesce(var.instance_aws_vpc_id, try(aws_vpc.default[0].id, null))
   subnet_id          = try(aws_subnet.default[0].id, data.aws_subnet.default[0].id)
+  availability_zone  = try(data.aws_subnet.default[0].availability_zone, random_shuffle.default.result[0])
   security_group_ids = [try(aws_security_group.default[0].id, data.aws_security_group.default[0].id)]
   key_name           = try(aws_key_pair.default[0].key_name, data.aws_key_pair.default[0].key_name, null)
 }

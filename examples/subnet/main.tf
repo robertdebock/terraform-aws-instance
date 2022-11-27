@@ -9,9 +9,8 @@ data "terraform_remote_state" "default" {
 
 module "instance" {
   source                          = "../../"
-  # instance_aws_key_pair_id        = data.terraform_remote_state.default.outputs.instance_key_pair_id
   instance_user_data_script_file  = "myscript.sh"
-  instance_volume_size            = 16
+  instance_aws_subnet_id          = data.terraform_remote_state.default.outputs.instance_subnet_id
 }
 
 output "all" {
