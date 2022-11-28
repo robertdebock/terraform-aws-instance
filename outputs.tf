@@ -8,6 +8,11 @@ output "instance_ssh_connect_string" {
   value       = "ssh ${local.ssh_user}@${aws_instance.default.public_ip}"
 }
 
+output "instance_private_ip" {
+  description = "The private IP address of the instance."
+  value       = aws_instance.default.private_ip
+}
+
 output "instance_vpc_id" {
   description = "The VPC id where the instance is deployed."
   value       = var.instance_aws_vpc_id == null ? aws_vpc.default[0].id : var.instance_aws_vpc_id
