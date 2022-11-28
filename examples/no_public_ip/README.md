@@ -1,3 +1,5 @@
-# Default
+# No Public IP
 
-The bare minimum, but sufficient.
+An instance without a public IP.
+
+Note: This intance does not have internet access.

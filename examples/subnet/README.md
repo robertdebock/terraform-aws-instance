@@ -1,3 +1,3 @@
-# Default
+# Subnet
 
-The bare minimum, but sufficient.
+An instance in an existing subnet.

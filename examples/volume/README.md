@@ -1,3 +1,3 @@
-# Default
+# Volume
 
-The bare minimum, but sufficient.
+An example that has a volume.

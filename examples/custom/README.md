@@ -1,3 +1,3 @@
 # Custom
 
-Deploy a bunch of combinations.
+Deploy a bunch of distribution combinations.
