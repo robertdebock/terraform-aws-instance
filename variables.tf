@@ -109,3 +109,9 @@ variable "instance_volume_size" {
   description = "The size in gigabytes of the extra volume attached to the instance. \"0\" means no volume will be added."
   type        = number
 }
+
+variable "instance_associate_public_ip_address" {
+  default     = true
+  description = "Whether to associate a public IP address with this instance."
+  type        = bool
+}
