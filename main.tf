@@ -135,7 +135,7 @@ data "aws_ami" "default" {
 
 resource "aws_instance" "default" {
   ami                         = data.aws_ami.default.id
-  associate_public_ip_address = true
+  associate_public_ip_address = var.instance_associate_public_ip_address
   instance_type               = var.instance_type
   key_name                    = local.key_name
   subnet_id                   = local.subnet_id
