@@ -15,6 +15,8 @@ jobs:
       fail-fast: false
       matrix:
         config:
+          - name: counted
+          - name: counted_custom
           - name: custom
           - name: default
           - name: no_public_ip
