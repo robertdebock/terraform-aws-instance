@@ -11,7 +11,6 @@ data "aws_vpc" "default" {
 
 resource "aws_security_group" "default" {
   count       = var.instance_aws_security_group_id == null ? 1 : 0
-  name        = var.instance_name
   description = "Allow traffic."
   vpc_id      = local.vpc_id
   tags        = local.tags
