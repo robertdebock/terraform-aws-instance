@@ -4,7 +4,7 @@ resource "tls_private_key" "default" {
 }
 
 resource "aws_key_pair" "default" {
-  key_name   = "my-custom-key"
+  key_name   = "my-counted-custom-key"
   public_key = tls_private_key.default.public_key_openssh
 }
 
