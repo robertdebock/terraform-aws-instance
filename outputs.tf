@@ -15,15 +15,15 @@ output "instance_private_ip" {
 
 output "instance_vpc_id" {
   description = "The VPC id where the instance is deployed."
-  value       = var.instance_aws_vpc_id == null ? try(aws_vpc.default[0].id, "Nothing" : var.instance_aws_vpc_id
+  value       = var.instance_aws_vpc_id == null ? try(aws_vpc.default[0].id, "Nothing") : var.instance_aws_vpc_id
 }
 
 output "instance_subnet_id" {
   description = "The subnet id where the instance is deployed."
-  value       = var.instance_aws_subnet_id == null ? try(aws_subnet.default[0].id, "Nothing" : var.instance_aws_subnet_id
+  value       = var.instance_aws_subnet_id == null ? try(aws_subnet.default[0].id, "Nothing") : var.instance_aws_subnet_id
 }
 
 output "instance_security_group_id" {
   description = "The security group where the instance is deployed."
-  value       = var.instance_aws_security_group_id == null ? try(aws_security_group.default[0].id, "Nothing" : var.instance_aws_security_group_id
+  value       = var.instance_aws_security_group_id == null ? try(aws_security_group.default[0].id, "Nothing") : var.instance_aws_security_group_id
 }
