@@ -8,7 +8,7 @@ locals {
   user_data = try(file(var.instance_user_data_script_file), null)
 
   _aws_ami_name = {
-    centos7      = "CentOS Linux 7.*"
+    centos7      = "CentOS Linux 7 *"
     centos8      = "CentOS Stream 8 *"
     centos9      = "CentOS Stream 9 *"
     fedora       = "Fedora-Cloud-Base-36-*"
