@@ -39,11 +39,11 @@ variable "instance_user_data_script_file" {
 
 variable "instance_distribution" {
   default     = "fedora"
-  description = "Pick the distribution you would like to use."
+  description = "Pick the distribution you would like to use. Any of \"centos7\", \"centos8\", \"centos9\", \"fedora\", \"oraclelinux7\", \"oraclelinux8\", \"oraclelinux9\", or \"ubuntu\"."
   type        = string
   validation {
     condition     = contains(["centos7", "centos8", "centos9", "fedora", "oraclelinux7", "oraclelinux8", "oraclelinux9", "ubuntu"], var.instance_distribution)
-    error_message = "Please choose from \"centos(7|8|9)\", \"fedora\", \"oraclelinux(7|8|9)\", or \"ubuntu\"."
+    error_message = "Please choose from \"centos(8|9)\", \"fedora\", \"oraclelinux(7|8|9)\", or \"ubuntu\"."
   }
 }
 
