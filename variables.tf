@@ -43,7 +43,7 @@ variable "instance_distribution" {
   type        = string
   validation {
     condition     = contains(["centos7", "centos8", "centos9", "fedora", "oraclelinux7", "oraclelinux8", "oraclelinux9", "ubuntu"], var.instance_distribution)
-    error_message = "Please choose from \"centos(8|9)\", \"fedora\", \"oraclelinux(7|8|9)\", or \"ubuntu\"."
+    error_message = "Please choose from \"centos(7|8|9)\", \"fedora\", \"oraclelinux(7|8|9)\", or \"ubuntu\"."
   }
 }
 
