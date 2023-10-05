@@ -15,6 +15,8 @@ locals {
     oraclelinux7 = "OL7.*"
     oraclelinux8 = "OL8.*"
     oraclelinux9 = "OL9.*"
+    rhel8        = "Red Hat Enterprise Linux 8 *"
+    rhel9        = "Red Hat Enterprise Linux 9 *"
     ubuntu       = "ubuntu/images/hvm-ssd/ubuntu-focal-*-server-*"
   }
   aws_ami_name = local._aws_ami_name[var.instance_distribution]
@@ -27,6 +29,8 @@ locals {
     oraclelinux7 = "131827586825"
     oraclelinux8 = "131827586825"
     oraclelinux9 = "131827586825"
+    rhel8        = "309956199498"
+    rhel9        = "309956199498"
     ubuntu       = "099720109477"
   }
   aws_ami_owner = local._aws_ami_owner[var.instance_distribution]
@@ -39,6 +43,8 @@ locals {
     oraclelinux7 = "ec2-user"
     oraclelinux8 = "ec2-user"
     oraclelinux9 = "ec2-user"
+    rhel8        = "ec2-user"
+    rhel9        = "ec2-user"
     ubuntu       = "ubuntu"
   }
   ssh_user           = local._ssh_user[var.instance_distribution]
