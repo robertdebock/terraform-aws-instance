@@ -15,8 +15,8 @@ locals {
     oraclelinux7 = "OL7.*"
     oraclelinux8 = "OL8.*"
     oraclelinux9 = "OL9.*"
-    rhel8        = "Red Hat Enterprise Linux 8 *"
-    rhel9        = "Red Hat Enterprise Linux 9 *"
+    rhel8        = "RHEL-8*-4-Hourly*"
+    rhel9        = "RHEL-9*-4-Hourly*"
     ubuntu       = "ubuntu/images/hvm-ssd/ubuntu-focal-*-server-*"
   }
   aws_ami_name = local._aws_ami_name[var.instance_distribution]
