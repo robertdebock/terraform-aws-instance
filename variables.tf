@@ -90,7 +90,7 @@ variable "instance_aws_key_pair_id" {
   type        = string
   validation {
     condition     = var.instance_aws_key_pair_id == null || can(regex("^key-.*", var.instance_aws_key_pair_id))
-    error_message = "Please set a subnet starting with \"key-\"."
+    error_message = "Please select a key pair starting with \"key-\"."
   }
 }
 
