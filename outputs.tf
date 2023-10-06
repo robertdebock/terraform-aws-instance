@@ -3,6 +3,11 @@ output "instance_public_ip" {
   value       = aws_instance.default.public_ip
 }
 
+output "instance_ssh_username" {
+  description = "The username required to login."
+  value       = local.ssh_user
+}
+
 output "instance_ssh_connect_string" {
   description = "The command that can be used to login to the instance."
   value       = "ssh ${local.ssh_user}@${aws_instance.default.public_ip}"
