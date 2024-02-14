@@ -16,6 +16,7 @@ module "centos8" {
   instance_aws_subnet_id                     = data.terraform_remote_state.default.outputs.instance_subnet_id
   instance_aws_security_group_id             = data.terraform_remote_state.default.outputs.instance_security_group_id
   instance_user_data_script_file             = "myscript.sh"
+  instance_root_block_device                 = 32
 }
 
 module "centos9" {

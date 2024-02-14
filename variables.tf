@@ -73,7 +73,6 @@ variable "instance_aws_subnet_id" {
   }
 }
 
-
 variable "instance_aws_security_group_id" {
   default     = null
   description = "Optionally specify the (existing) security group to deploy in. Not setting this value, means this module will create a security group."
@@ -114,4 +113,14 @@ variable "instance_associate_public_ip_address" {
   default     = true
   description = "Whether to associate a public IP address with this instance."
   type        = bool
+}
+
+variable "instance_root_block_device" {
+  default     = 16
+  description = "The size in gigabytes of the primary disk."
+  type        = number
+  validation {
+    condition     = var.instance_root_block_device > 8
+    error_message = "Please use a size of 8 (gigabytes) or up."
+  }
 }

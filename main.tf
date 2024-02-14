@@ -141,6 +141,9 @@ resource "aws_instance" "default" {
   vpc_security_group_ids      = local.security_group_ids
   tags                        = local.tags
   user_data                   = local.user_data
+  root_block_device {
+    volume_size = var.instance_root_block_device
+  }
 }
 
 resource "aws_internet_gateway" "default" {
