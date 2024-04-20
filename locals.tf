@@ -11,7 +11,7 @@ locals {
     centos7      = "CentOS Linux 7 *"
     centos8      = "CentOS Stream 8 *"
     centos9      = "CentOS Stream 9 *"
-    fedora       = "Fedora-Cloud-Base-36-*"
+    fedora       = "Fedora-Cloud-Base-39-*"
     oraclelinux7 = "OL7.*"
     oraclelinux8 = "OL8.*"
     oraclelinux9 = "OL9.*"
